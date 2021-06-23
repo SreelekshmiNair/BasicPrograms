@@ -3,7 +3,10 @@
 
 #include <iostream>
 #include<math.h>
+// #include<stdlib.h>
 using namespace std;
+
+bool ValidateInput();
 void HelloWorld();
 void AreaofTriangle();
 void SumofNaturalNumbers();
@@ -18,6 +21,7 @@ int main()
     int option;
     while (1)
     {
+        
         cout << "**************Menu**************" << endl;
         cout << "  1 : Display Hello World" << endl;
         cout << "  2 : Find the Area of a Triangle" << endl;
@@ -32,6 +36,8 @@ int main()
         cout << "Select the required action by their number : " << endl;
        
         cin >> option;
+        bool val = ValidateInput();
+   if(val==false){abort();}
         switch (option)
         {
         default:cout << "Invalid selection";
@@ -61,10 +67,21 @@ int main()
             DistancebtwPoints();
             break;
         case 100:
-            return 0;
+           abort();
         }
     }
     
+}
+bool ValidateInput(){
+    //Section to check whether only input with correct datatype is taken
+        if(!cin)
+        {
+            cin.clear(); 
+            //cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid input, Program exited" << endl;
+            return false;
+        }
+return true;
 }
 void HelloWorld()
 {
@@ -78,6 +95,8 @@ void AreaofTriangle()
     cout << "********************************" << endl;
     cout << "Enter the breadth and height of the Triangle respectively : " << endl;
     cin >> b>>h;
+    bool val = ValidateInput();
+   if(val==false){abort();}
     Area = (b * h) / 2;
     cout << "Area of the Triangle is : "<< Area <<endl;
     cout << "********************************" << endl;
@@ -88,6 +107,8 @@ void SumofNaturalNumbers()
     cout << "********************************" << endl;
     cout << "Enter the value of 'N': " << endl;
     cin >> N;
+    bool val = ValidateInput();
+   if(val==false){abort();}
     Sum = N * (N + 1) / 2;
     cout << "Sum of first " << N << " Natural numbers is " << Sum << endl;
     cout << "********************************" << endl;
@@ -98,6 +119,8 @@ void RootsofQuadEqn()
     cout << "********************************" << endl;
     cout << "Enter the 3 coefficients of the Quadratic equation in order : " << endl;
     cin >> a>> b>> c;
+    bool val = ValidateInput();
+   if(val==false){abort();}
     root1 = (-b + sqrt((b * b) - (4 * a * c))) / (2 * a);
     root2 = (-b - sqrt((b * b) - (4 * a * c))) / (2 * a);
     cout << "Roots of the Quadratic equation " << a << "x2+" << b << "x+" << c << " are " << root1 << " and " << root2 << endl;
@@ -109,10 +132,16 @@ void DistanceTravelled()
     cout << "********************************" << endl;
     cout << "Enter the initial velocity in m/s : " << endl;
     cin >> u;
+    bool val = ValidateInput();
+   if(val==false){abort();}
     cout << "Enter the final velocity in m/s : " << endl;
     cin >> v;
+    bool val = ValidateInput();
+   if(val==false){abort();}
     cout << "Enter the rate of acceleration in m/sec2 : " << endl;
     cin >> a;
+    bool val = ValidateInput();
+   if(val==false){abort();}
     S = (pow(v, 2) - pow(u, 2)) / (2 * a);
     cout << "The distance travelled is " << S << "m"<<endl;
     cout << "********************************" << endl;
@@ -123,10 +152,16 @@ void SimpleInterest()
     cout << "********************************" << endl;
     cout << "Enter the Principal Amout : " << endl;
     cin >> P;
+    bool val = ValidateInput();
+   if(val==false){abort();}
     cout << "Enter the Number of Years : " << endl;
     cin >> N;
+    bool val = ValidateInput();
+   if(val==false){abort();}
     cout << "Enter the Rate of Interest : " << endl;
     cin >> R;
+    bool val = ValidateInput();
+   if(val==false){abort();}
     SI = (float)P * N * R / 100;
     cout << "The Simple interest is " << SI << endl;
     cout << "********************************" << endl;
@@ -137,8 +172,12 @@ void VolumeofCylinder()
     cout << "********************************" << endl;
     cout << " Enter the radius of the Cylinder : " << endl;
     cin >> rad;
+   bool val = ValidateInput();
+   if(val==false){abort();}
     cout << "Enter the height of the Cylinder : " << endl;
     cin >> h;
+    bool val = ValidateInput();
+   if(val==false){abort();}
     volume = 3.14 * rad * rad * h;
     cout << " Volume of Cylinder is : " << volume << endl;
     cout << "********************************" << endl;
@@ -149,8 +188,12 @@ void DistancebtwPoints()
     cout << "********************************" << endl;
     cout << "Enter the (x,y) of first point : " << endl;
     cin >> x1>> y1;
+    bool val = ValidateInput();
+   if(val==false){abort();}
     cout << "Enter the (x,y) of last point : " << endl;
     cin >> x2 >> y2;
+    bool val = ValidateInput();
+   if(val==false){abort();}
     dis = sqrt((pow(x2 - x1, 2)) - (pow(y2 - y1, 2)));
     cout << "Distance between 2 points is " << dis;
     cout << "********************************" << endl;
